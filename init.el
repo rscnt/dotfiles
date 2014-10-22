@@ -1,1 +1,0 @@
-/hel/.emacs.d/init.el
