@@ -5,11 +5,12 @@ if has('vim_starting')
   set nocompatible               " Be iMproved
 
   " Required:
-  set runtimepath+=/hel/.vim/bundle/neobundle.vim/
+  set runtimepath+=~/.vim/
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 " Required:
-call neobundle#begin(expand('/hel/.vim/bundle'))
+call neobundle#begin(expand('~/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -343,3 +344,9 @@ let g:choosewin_overlay_enable          = 1
 let g:choosewin_overlay_clear_multibyte = 1"
 let g:ackprg = "ag --nogroup --nocolor --column"
 set nobackup 
+if has("gui_running")
+  if has("gui_macvim")
+    set guifont=Sauce\ Code\ Powerline:h11
+  endif
+endif
+
