@@ -76,6 +76,8 @@ NeoBundle "matthewsimo/angular-vim-snippets"
 NeoBundle "claco/jasmine.vim"
 NeoBundle "burnettk/vim-angular"
 NeoBundle "gregsexton/MatchTag"
+"clickeable
+NeoBundle "Rykka/clickable.vim"
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimproc.vim', {
@@ -242,6 +244,8 @@ set viminfo='10,\"100,:20,%,n~/.viminfo
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 set smarttab
 set expandtab
 let g:AutoPairsFlyMode = 1 
