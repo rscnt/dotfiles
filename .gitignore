@@ -2,3 +2,5 @@ emacs/.emacs.d/*
 vim/.vim
 !vim/.vim/bundle/neobundle.vim
 !emacs/.emacs.d/init.el
+!emacs/.emacs.d/Cask
+flycheck_init.el
