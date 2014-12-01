@@ -238,9 +238,6 @@ let g:airline_powerline_fonts = 1
 "  %    :  saves and restores the buffer list
 "  n... :  where to save the viminfo files
 set viminfo='10,\"100,:20,%,n~/.viminfo
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
 set smarttab
 set expandtab
 let g:AutoPairsFlyMode = 1 
@@ -319,6 +316,12 @@ autocmd FileType markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
