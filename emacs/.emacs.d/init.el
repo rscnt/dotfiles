@@ -175,13 +175,13 @@
 (setq rbenv-modeline-function 'rbenv--modeline-plain)
 
 ;; enh robde mode
-(add-hook 'enh-ruby-mode-hook 'robe-mode)
-(add-hook 'robe-mode-hook 'ac-robe-setup)
+(add-hook 'ruby-mode 'robe-mode)
+;; (add-hook 'robe-mode-hook 'ac-robe-setup)
 ;; e M-x robe-start.
-;;(push 'company-robe company-backends)
+(push 'company-robe company-backends)
 
 ;; js2-ac
-(add-hook 'js2-mode-hook 'ac-js2-mode)
+;; (add-hook 'js2-mode-hook 'ac-js2-mode)
 (require 'jquery-doc)
 (add-hook 'js2-mode-hook 'jquery-doc-setup)
 
@@ -241,8 +241,8 @@
 ;; (require 'go-autocomplete)
 ;; (require 'auto-complete-config)
 
-(setq ac-auto-start t)
-(add-hook 'js2-mode-hook 'ac-js2-mode)
+;; (setq ac-auto-start t)
+;; (add-hook 'js2-mode-hook 'ac-js2-mode)
 
 (add-hook 'js2-mode-hook 'skewer-mode)
 (add-hook 'css-mode-hook 'skewer-css-mode)
@@ -385,18 +385,18 @@
                (sp-local-pair "<%" "%>"))
 
 ;; ruby mode
-(autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
-(add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.rake$" . enh-ruby-mode))
-(add-to-list 'auto-mode-alist '("Rakefile$" . enh-ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.gemspec$" . enh-ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.ru$" . enh-ruby-mode))
-(add-to-list 'auto-mode-alist '("Gemfile$" . enh-ruby-mode))
+;;(autoload 'ruby "enh-ruby-mode" "Major mode for ruby files" t)
+(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
 
-(add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
+(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
 
-(setq enh-ruby-bounce-deep-indent t)
-(setq enh-ruby-hanging-brace-indent-level 2)
+;; (setq enh-ruby-bounce-deep-indent t)
+;; (setq enh-ruby-hanging-brace-indent-level 2)
 
 (require 'cl) ; If you don't have it already
 
@@ -439,13 +439,13 @@
 (setq rbenv-modeline-function 'rbenv--modeline-plain)
 
 ;; enh robde mode
-(add-hook 'enh-ruby-mode-hook 'robe-mode)
-(add-hook 'robe-mode-hook 'ac-robe-setup)
+(add-hook 'ruby-mode 'robe-mode)
+;; (add-hook 'robe-mode-hook 'ac-robe-setup)
 ;; e M-x robe-start.
 (push 'company-robe company-backends)
 
 ;; js2-ac
-(add-hook 'js2-mode-hook 'ac-js2-mode)
+;; (add-hook 'js2-mode-hook 'ac-js2-mode)
 (require 'jquery-doc)
 (add-hook 'js2-mode-hook 'jquery-doc-setup)
 
@@ -505,8 +505,8 @@
 (require 'go-autocomplete)
 (require 'auto-complete-config)
 
-(setq ac-auto-start t)
-(add-hook 'js2-mode-hook 'ac-js2-mode)
+;; (setq ac-auto-start t)
+;;; (add-hook 'js2-mode-hook 'ac-js2-mode)
 
 (add-hook 'js2-mode-hook 'skewer-mode)
 (add-hook 'css-mode-hook 'skewer-css-mode)
@@ -702,13 +702,13 @@
 (setq rbenv-modeline-function 'rbenv--modeline-plain)
 
 ;; enh robde mode
-(add-hook 'enh-ruby-mode-hook 'robe-mode)
-(add-hook 'robe-mode-hook 'ac-robe-setup)
+(add-hook 'ruby-mode 'robe-mode)
+;; (add-hook 'robe-mode-hook 'ac-robe-setup)
 ;; e M-x robe-start.
 (push 'company-robe company-backends)
 
 ;; js2-ac
-(add-hook 'js2-mode-hook 'ac-js2-mode)
+;; (add-hook 'js2-mode-hook 'ac-js2-mode)
 (require 'jquery-doc)
 (add-hook 'js2-mode-hook 'jquery-doc-setup)
 
@@ -768,8 +768,8 @@
 (require 'go-autocomplete)
 (require 'auto-complete-config)
 
-(setq ac-auto-start t)
-(add-hook 'js2-mode-hook 'ac-js2-mode)
+;; (setq ac-auto-start t)
+;; (add-hook 'js2-mode-hook 'ac-js2-mode)
 
 (add-hook 'js2-mode-hook 'skewer-mode)
 (add-hook 'css-mode-hook 'skewer-css-mode)
@@ -966,7 +966,7 @@
 
 ;; enh robde mode
 (add-hook 'ruby-mode 'robe-mode)
-(add-hook 'robe-mode-hook 'ac-robe-setup)
+;; (add-hook 'robe-mode-hook 'ac-robe-setup)
 ;; e M-x robe-start.
 (push 'company-robe company-backends)
 
@@ -1031,8 +1031,8 @@
 (require 'go-autocomplete)
 (require 'auto-complete-config)
 
-(setq ac-auto-start t)
-(add-hook 'js2-mode-hook 'ac-js2-mode)
+;; (setq ac-auto-start t)
+;; (add-hook 'js2-mode-hook 'ac-js2-mode)
 
 (add-hook 'js2-mode-hook 'skewer-mode)
 (add-hook 'css-mode-hook 'skewer-css-mode)
