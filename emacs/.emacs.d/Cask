@@ -1,13 +1,17 @@
-(source melpa)
-
-(depends-on "pallet")
-
+(source "melpa" "http://melpa.milkbox.net/packages/")
 (source gnu)
+(source marmalade)
+(source melpa)
+(source org)
+
 (depends-on "cask")
+(depends-on "company-inf-ruby")
 (depends-on "dash")
 (depends-on "epl")
 (depends-on "f")
+(depends-on "gist")
 (depends-on "package-build")
 (depends-on "pallet")
 (depends-on "s")
 (depends-on "shut-up")
+(depends-on "yard-mode")
