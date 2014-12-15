@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="lambda"
+ZSH_THEME="jnrowe"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -48,7 +48,7 @@ ZSH_THEME="lambda"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git zsh-syntax-highlighting rails ruby archlinux bower bundler docker fasd git-flow git-extras)
+plugins=(git zsh-syntax-highlighting rails ruby debian bower bundler docker fasd git-flow git-extras source history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -78,19 +78,19 @@ fi
 
 eval "$(fasd --init posix-alias zsh-hook zsh-wcomp zsh-ccomp )"
 export PATH="$HOME/.rbenv/bin:$PATH"
-source /usr/bin/virtualenvwrapper_lazy.sh
+source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 
 # zsh-substring
-source ~/.zsh-substring/zsh-history-substring-search.zsh
+# source ~/.zsh-substring/zsh-history-substring-search.zsh
 
 # bind k and j for VI mode
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
+# bindkey -M vicmd 'k' history-substring-search-up
+# bindkey -M vicmd 'j' history-substring-search-down
 
 
 # Setup zsh-autosuggestions
-#source ~/.zsh-autosuggestions/autosuggestions.zsh
+source ~/.zsh-autosuggestions/autosuggestions.zsh
 
 # Enable autosuggestions automatically
 #zle-line-init() {
@@ -122,3 +122,22 @@ export GOPATH=$HOME/devs/gopath
 export PATH=$PATH:$GOPATH/bin
 export HAGARD_IP=162.243.207.120
 export NDURNZ_IP=107.170.154.110
+
+# Setup zsh-autosuggestions
+source /home/rscnt/.zsh-autosuggestions/autosuggestions.zsh
+
+# bind P and N for EMACS mode
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+
+# Enable autosuggestions automatically
+zle-line-init() {
+    zle autosuggest-start
+}
+
+zle -N zle-line-init
+
+# use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
+# zsh-autosuggestions is designed to be unobtrusive)
+bindkey '^T' autosuggest-toggle
+export PATH="/home/rscnt/.cask/bin:$PATH"
