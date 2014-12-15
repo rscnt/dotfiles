@@ -22,7 +22,11 @@
   (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
   )
 
-;;(add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'after-init-hook 'global-company-mode)
+
+(setq company-backends '(company-keywords
+                         company-files 
+                         company-dabbrev))
 
 ;;=============
 ;; Flycheck mode.

@@ -10,6 +10,7 @@
 (depends-on "epl")
 (depends-on "f")
 (depends-on "gist")
+(depends-on "levenshtein")
 (depends-on "package-build")
 (depends-on "pallet")
 (depends-on "s")
