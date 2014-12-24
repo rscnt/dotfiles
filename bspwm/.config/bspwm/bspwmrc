@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-config border_width        1
+bspc config border_width        1
 bspc config window_gap          2
 
 i=1
@@ -13,7 +13,7 @@ done
 NMON=$i
 unset i
 
-bspc config top_padding 1 
+bspc config bottom_padding 30
 
 # Visual options
 bspc config split_ratio         0.50
@@ -33,19 +33,26 @@ bspc config focused_frame_opacity 0.1
 
 
 # Rules
-#bspc rule -a Skype pseudo_tiled=on
-#bspc rule -a Spotify pseudo_tiled=on
+bspc rule -a Skype pseudo_tiled=on
+bspc rule -a Spotify pseudo_tiled=on
 bspc rule -a Thunar pseudo_tiled=on
-#bspc rule -a Skype pseudo_tiled=on
-#bspc rule -a File-roller pseudo_tiled=on
-#bspc rule -a Transmission-gtk pseudo_tiled=on
-#bspc rule -a Conky sticky=on manage=off lower=on
-#bspc rule -a astime sticky=on
+bspc rule -a Skype pseudo_tiled=on
+bspc rule -a File-roller pseudo_tiled=on
+bspc rule -a Transmission-gtk pseudo_tiled=on
+bspc rule -a Conky sticky=on manage=off lower=on
+bspc rule -a astime sticky=on
 bspc rule -a feh floating=on manage=off
 
-#open Funny Java Things
-bspc config focus_follows_pointer false
-wmname LG3D
 
+#open Funny Java Things
+bspc config focus_follows_pointer false &
+wmname LG3D &
+xautolock -time 5 -locker slock &
+xfce4-power-manager &
+xfsettingsd &
+thunar-volman &
+wicd-gtk --tray &
+start-pulseaudio-x11 &
+xfce4-clipman &
+tint2 &
 #emacs daemon
-emacs --daemon

@@ -222,8 +222,8 @@ set wildmenu wildmode=list:longest wildignore=*.o,*.obj,*.so,*.a,*.py[co],*~
 autocmd BufEnter * silent! lcd %:p:h
 
 syntax enable
-set background=light
-colorscheme solarized
+"set background=light
+"colorscheme solarized
 "ai ts=4 sts=4 et sw=4
 " recent file
 nnoremap <silent> <Leader>m :Unite -buffer-name=recent -winheight=10 file_mru<cr>

@@ -90,7 +90,7 @@ source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 
 # Setup zsh-autosuggestions
-source ~/.zsh-autosuggestions/autosuggestions.zsh
+#source ~/.zsh-autosuggestions/autosuggestions.zsh
 
 # Enable autosuggestions automatically
 #zle-line-init() {
@@ -113,31 +113,23 @@ alias v='f -e vim' # quick opening files with vim
 alias m='f -e mplayer' # quick opening files with mplayer
 alias o='a -e xdg-open' # quick opening files with xdg-open
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
-export PATH="/hel/.bin:$PATH"
+#export PATH="/hel/.bin:$PATH"
 export PULSE_LATENCY_MSEC=60
 # MPD daemon start (if no other user instance exists)
 #[ ! -s ~/.config/mpd/pid  ] && mpd
 #
-export GOPATH=$HOME/devs/gopath
-export PATH=$PATH:$GOPATH/bin
 export HAGARD_IP=162.243.207.120
 export NDURNZ_IP=107.170.154.110
 
 # Setup zsh-autosuggestions
-source /home/rscnt/.zsh-autosuggestions/autosuggestions.zsh
+#source /home/rscnt/.zsh-autosuggestions/autosuggestions.zsh
+bindkey -e
 
 # bind P and N for EMACS mode
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
 
-# Enable autosuggestions automatically
-zle-line-init() {
-    zle autosuggest-start
-}
-
-zle -N zle-line-init
-
-# use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
-# zsh-autosuggestions is designed to be unobtrusive)
-bindkey '^T' autosuggest-toggle
-export PATH="/home/rscnt/.cask/bin:$PATH"
+#export PATH="$GOPATH/bin:$GOROOT/bin:~/Apps/android-studio/bin:$HOME/bin:$HOME/scripts:$HOME/.cask/bin:$HOME/.scripts:$PATH"
+#source $HOME/.gvm/scripts/gvm
+#export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"

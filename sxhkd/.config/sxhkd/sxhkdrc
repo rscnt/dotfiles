@@ -17,8 +17,8 @@ super + w
 	bspc monitor -f next
 
 # Kill all detached tmux sessions
-super + x
-	$HOME/scripts/tmux_purge
+#super + x
+	#$HOME/scripts/tmux_purge
 
 # Close window
 super + shift + x
@@ -154,22 +154,25 @@ super + shift + backslash
 	create_frame 
 
 super + shift + Return
-	urxvtc 
+	xfce4-terminal 
 
 super + ctrl + Return
-	 bspc rule -a urxvt -o pseudo_tiled=on && urxvtc
+	 bspc rule -a xfce4-terminal -o pseudo_tiled=on && xfce4-terminal 
 
 super + r
-	$HOME/scripts/lens
+   dmenu_run
 
-super + shift + r
-	dmenu_run
+super + shift + s
+	$HOME/scripts/spotlight
 
+super + s
+	$HOME/scripts/finder
+	
 super + shift + b
 	firefox
 
 super + shift + n
-	urxvtc	
+        urxvtc	
 
 super + z
 	zathura
