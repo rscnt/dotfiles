@@ -167,6 +167,44 @@
 ;; rbenv
 (setq rbenv-installation-dir "~/.rbenv/bin/rbenv")
 (require 'rbenv)
+;; RBENV
+(autoload 'rbenv "rbenv")
+(autoload 'global-rbenv-mode "rbenv")
+
+(defalias 'inf-ruby-keys 'inf-ruby-setup-keybindings)
+
+;; For electric goodness!
+(require 'ruby-electric)
+(add-hook 'ruby-mode-hook (lambda ()
+			    (unless (derived-mode-p 'prog-mode)
+			      (run-hooks 'prog-mode-hook))
+			    (require 'ruby-electric)
+			    (ruby-electric-mode t)))
+
+(eval-after-load 'ruby-mode
+  '(progn
+     ;; work around possible elpa bug
+     (ignore-errors (require 'ruby-compilation))
+     (setq ruby-use-encoding-map nil)
+     (autoload 'inf-ruby "inf-ruby")
+     (add-hook 'ruby-mode-hook 'inf-ruby-keys)
+     (autoload 'inf-ruby-switch-setup "inf-ruby")
+     (add-hook 'ruby-mode-hook 'flymake-ruby-load)
+     (require 'ruby-tools)
+     (ruby-tools-mode +1)
+     (require 'ruby-block)
+     (ruby-block-mode t)
+     (add-hook 'ruby-mode-hook 'ri-bind-key)
+     (let ((m ruby-mode-map))
+       (define-key m (kbd "RET") 'reindent-then-newline-and-indent)
+       (define-key m (kbd "C-M-h") 'backward-kill-word)
+       (define-key m (kbd "C-c l") "lambda")
+       (define-key m [S-f7] 'ruby-compilation-this-buffer)
+       (define-key m [f7] 'ruby-compilation-this-test)
+       (define-key m [f8] 'recompile))))
+
+
+
 ;; (global-rbenv-mode)
 (setq rbenv-modeline-function 'rbenv--modeline-plain)
 
