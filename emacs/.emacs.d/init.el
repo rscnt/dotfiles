@@ -324,4 +324,11 @@
 (add-hook 'js-mode-hook (lambda () (tern-mode t)))
 (add-to-list 'company-backends 'company-tern)
 
+(require 'helm-config)
+(helm-mode 1)
+(helm-autoresize-mode 1)
+(global-set-key (kbd "M-x") 'helm-M-x)
+	
+
+(add-hook 'before-save-hook 'whitespace-cleanup)
 ;; end of init.el

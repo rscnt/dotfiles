@@ -37,6 +37,7 @@
 (depends-on "go-mode")
 (depends-on "goto-chg")
 (depends-on "grizzl")
+(depends-on "helm")
 (depends-on "highlight-current-line")
 (depends-on "highlight-escape-sequences")
 (depends-on "highlight-indentation")
