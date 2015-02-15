@@ -105,6 +105,7 @@
 ;;(require 'sublime-themes)
 ;;(load-theme 'fogus t)
 (require 'solarized-theme)
+(load-theme 'solarized-light t)
 ;;(require 'color-theme)
 ;;(color-theme-initialize)
 ;;(add-to-list 'custom-theme-load-path "/home/hel/.emacs.d/themes/base16-emacs")
@@ -331,4 +332,15 @@
 	
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
-;; end of init.el
+
+(load "pandoc-mode")
+(add-hook 'markdown-mode-hook 'pandoc-mode)
+(add-hook 'pandoc-mode-hook 'pandoc-load-default-settings)
+
+(autoload 'markdown-mode "markdown-mode"
+   "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+;; init.el ends here.
