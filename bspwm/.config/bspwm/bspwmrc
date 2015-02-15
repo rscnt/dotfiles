@@ -48,11 +48,12 @@ bspc rule -a feh floating=on manage=off
 bspc config focus_follows_pointer false &
 wmname LG3D &
 xautolock -time 5 -locker slock &
-xfce4-power-manager &
-xfsettingsd &
-thunar-volman &
-wicd-gtk --tray &
+# xfce4-power-manager &
+# xfsettingsd &
+# thunar-volman &
+# wicd-gtk --tray &
 start-pulseaudio-x11 &
-xfce4-clipman &
+# xfce4-clipman &
 tint2 &
+compton -bc -t -8 -l -9 -r 6 -o 0.7 &
 #emacs daemon
