@@ -55,5 +55,6 @@ xautolock -time 5 -locker slock &
 start-pulseaudio-x11 &
 # xfce4-clipman &
 tint2 &
-compton -bc -t -8 -l -9 -r 6 -o 0.7 &
+#compton -bc -t -8 -l -9 -r 6 -o 0.7 &
+feh --randomize --bg-scale .wallpapers/ &
 #emacs daemon

@@ -222,9 +222,9 @@ set wildmenu wildmode=list:longest wildignore=*.o,*.obj,*.so,*.a,*.py[co],*~
 autocmd BufEnter * silent! lcd %:p:h
 
 syntax enable
-"set background=light
-"colorscheme solarized
-"ai ts=4 sts=4 et sw=4
+set background=light
+colorscheme Tomorrow-Night-Eighties 
+"i ts=4 sts=4 et sw=4
 " recent file
 nnoremap <silent> <Leader>m :Unite -buffer-name=recent -winheight=10 file_mru<cr>
 
@@ -352,8 +352,9 @@ let g:choosewin_overlay_clear_multibyte = 1"
 let g:ackprg = "ag --nogroup --nocolor --column"
 set nobackup 
 if has("gui_running")
-  if has("gui_macvim")
-    set guifont=Sauce\ Code\ Powerline:h11
-  endif
+    set guioptions -=m
+    set guioptions -=T
+    set guioptions -=r
+    set guifont=Inconsolata\ for\ Powerline\ Medium\ 10 
 endif
 
