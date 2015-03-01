@@ -78,6 +78,7 @@ NeoBundle "burnettk/vim-angular"
 NeoBundle "gregsexton/MatchTag"
 "clickeable
 NeoBundle "Rykka/clickable.vim"
+NeoBundle "chrisbra/csv.vim"
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimproc.vim', {
@@ -223,7 +224,7 @@ autocmd BufEnter * silent! lcd %:p:h
 
 syntax enable
 set background=light
-colorscheme Tomorrow-Night-Eighties 
+colorscheme Tomorrow 
 "i ts=4 sts=4 et sw=4
 " recent file
 nnoremap <silent> <Leader>m :Unite -buffer-name=recent -winheight=10 file_mru<cr>
