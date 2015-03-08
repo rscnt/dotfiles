@@ -135,3 +135,5 @@ bindkey -M emacs '^N' history-substring-search-down
 eval "$(rbenv init -)"
 export PATH=/home/rscnt/.cask/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/rscnt/.local/bin:/home/rscnt/bin
 
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"

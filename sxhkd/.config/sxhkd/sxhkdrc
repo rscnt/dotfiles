@@ -157,10 +157,10 @@ super + shift + backslash
 	create_frame 
 
 super + shift + Return
-	gnome-terminal 
+	roxterm 
 
 super + ctrl + Return
-	 bspc rule -a gnome-terminal -o pseudo_tiled=on && gnome-terminal 
+	 bspc rule -a roxterm -o pseudo_tiled=on && roxterm 
 
 super + r
    dmenu_run
@@ -175,7 +175,7 @@ super + shift + b
 	firefox
 
 super + shift + n
-        gnome-terminal
+       roxterm 
 
 super + z
 	zathura
