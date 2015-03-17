@@ -137,3 +137,8 @@ export PATH=/home/rscnt/.cask/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/s
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+export GOPATH="$HOME/gocode"
+export PATH="$PATH:$GOPATH/bin"
+export GOROOT="$HOME/go"
+export PATH="$PATH:$GOROOT/bin"

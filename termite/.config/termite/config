@@ -14,8 +14,9 @@ scrollback_lines = 1000
 search_wrap = true
 icon_name = terminal
 geometry = 640x480
-font = Inconsolata-g 11
+#font = Inconsolata-g 11
 #font = Envy Code R 8
+font = Source Code Pro for Powerline 10
 
 # "system", "on" or "off"
 cursor_blink = on

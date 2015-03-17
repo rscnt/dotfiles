@@ -157,10 +157,10 @@ super + shift + backslash
 	create_frame 
 
 super + shift + Return
-	roxterm 
+	termite 
 
 super + ctrl + Return
-	 bspc rule -a roxterm -o pseudo_tiled=on && roxterm 
+	 bspc rule -a termite -o pseudo_tiled=on && termite 
 
 super + r
    dmenu_run
@@ -175,7 +175,7 @@ super + shift + b
 	firefox
 
 super + shift + n
-       roxterm 
+       termite 
 
 super + z
 	zathura
