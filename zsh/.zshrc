@@ -142,3 +142,20 @@ export GOPATH="$HOME/gocode"
 export PATH="$PATH:$GOPATH/bin"
 export GOROOT="$HOME/go"
 export PATH="$PATH:$GOROOT/bin"
+
+docker-machine-wrapper() {
+    CONFIG_NAME="$1"
+    shift
+    docker $(docker-machine config "$CONFIG_NAME") $@
+    
+}
+ 
+alias docker-mw="docker-machine-wrapper" 
+fpath=($HOME/packages/zsh-completions/src/ $fpath)
+
+
+show-swarm-token() {
+    SWARM_FILE_NAME="$1"
+    MACHINE_NAME="$2"
+    echo $( cat "$SWARM_FILE_NAME"  | grep "$MACHINE_NAME" | tr ',' ' ' | awk '{print substr($1,0)}' )
+}
