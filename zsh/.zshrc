@@ -78,7 +78,12 @@ fi
 
 eval "$(fasd --init posix-alias zsh-hook zsh-wcomp zsh-ccomp )"
 export PATH="$HOME/.rbenv/bin:$PATH"
-source /usr/bin/virtualenvwrapper_lazy.sh
+if [[ `uname` == 'Darwin' ]]
+then
+    source /usr/local/bin/virtualenvwrapper_lazy.sh
+else
+    source /usr/bin/virtualenvwrapper_lazy.sh
+fi
 
 
 # zsh-substring
