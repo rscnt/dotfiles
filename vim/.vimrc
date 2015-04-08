@@ -2,11 +2,11 @@ syntax on
 
 "NeoBundle Scripts-----------------------------
 if has('vim_starting')
-  set nocompatible               " Be iMproved
+    set nocompatible               " Be iMproved
 
-  " Required:
-  set runtimepath+=~/.vim/
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+    " Required:
+    set runtimepath+=~/.vim/
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 " Required:
@@ -18,6 +18,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
@@ -27,6 +28,8 @@ NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'tpope/vim-rbenv'
+NeoBundle 'tpope/vim-projectionist'
 "NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
@@ -82,15 +85,26 @@ NeoBundle "chrisbra/csv.vim"
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
+            \ 'build' : {
+            \     'windows' : 'tools\\update-dll-mingw',
+            \     'cygwin' : 'make -f make_cygwin.mak',
+            \     'mac' : 'make -f make_mac.mak',
+            \     'unix' : 'make -f make_unix.mak',
+            \    },
+            \ }
 NeoBundle 'Shougo/vimshell' 
 NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
+NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'eagletmt/neco-ghc'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'tmux-plugins/vim-tmux'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'tpope/vim-bundler'
+NeoBundle 'tpope/vim-rake'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-rbenv'
+NeoBundle 'ecomba/vim-ruby-refactoring'
 
 " Required:
 call neobundle#end()
@@ -167,16 +181,16 @@ nnoremap <silent> g* g*zz
 nnoremap <silent> g# g#zz
 
 if exists("+undofile")
-  " undofile - This allows you to use undos after exiting and restarting
-  " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
-  " :help undo-persistence
-  " This is only present in 7.3+
-  if isdirectory($HOME . '/.vim/undo') == 0
-    :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
-  endif
-  set undodir=./.vim-undo//
-  set undodir+=~/.vim/undo//
-  set undofile
+    " undofile - This allows you to use undos after exiting and restarting
+    " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
+    " :help undo-persistence
+    " This is only present in 7.3+
+    if isdirectory($HOME . '/.vim/undo') == 0
+        :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+    endif
+    set undodir=./.vim-undo//
+    set undodir+=~/.vim/undo//
+    set undofile
 endif
 
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<cr>
@@ -187,10 +201,10 @@ map H ^
 map L $
 
 "from https://github.com/eiro/rcfiles/
- 
+
 noremap! "" ""<left>
 noremap! '' ''<left>
- 
+
 noremap! (( ()<left>
 noremap! (<cr> (<cr>)<c-o>O
 noremap! (; ();<esc>hi
@@ -199,7 +213,7 @@ noremap! ('; ('');<esc>hhi
 noremap! ("; ("");<esc>hhi
 noremap! (' ('')<esc>hi
 noremap! (" ("")<esc>hi
- 
+
 noremap! {{ {}<left>
 noremap! {<cr> {<cr>}<c-o>O
 noremap! {; {};<esc>hi
@@ -208,7 +222,7 @@ noremap! {'; {''};<esc>hhi
 noremap! {"; {""};<esc>hhi
 noremap! {' {''}<esc>hi
 noremap! {" {""}<esc>hi
- 
+
 noremap! [[ []<left>
 noremap! [<cr> [<cr>]<c-o>O
 noremap! [; [];<esc>hi
@@ -224,7 +238,7 @@ autocmd BufEnter * silent! lcd %:p:h
 
 syntax enable
 set background=light
-colorscheme Tomorrow 
+colorscheme solarized
 "i ts=4 sts=4 et sw=4
 " recent file
 nnoremap <silent> <Leader>m :Unite -buffer-name=recent -winheight=10 file_mru<cr>
@@ -267,10 +281,10 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+            \ 'default' : '',
+            \ 'vimshell' : $HOME.'/.vimshell_hist',
+            \ 'scheme' : $HOME.'/.gosh_completions'
+            \ }
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
@@ -286,9 +300,9 @@ inoremap <expr><C-l>     neocomplete#complete_common_string()
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+    return neocomplete#close_popup() . "\<CR>"
+    " For no inserting <CR> key.
+    "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -326,15 +340,9 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
-
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
+    let g:neocomplete#sources#omni#input_patterns = {}
 endif
 "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
@@ -359,3 +367,6 @@ if has("gui_running")
     set guifont=Inconsolata\ for\ Powerline\ Medium\ 10 
 endif
 
+autocmd BufWritePost * :normal gg=G``zz
+set tags+=gems.tags
+set tags+=./tags

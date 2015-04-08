@@ -48,7 +48,7 @@ ZSH_THEME="minimal"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git zsh-syntax-highlighting rails ruby debian bower bundler docker fasd git-flow git-extras source history-substring-search)
+plugins=(git zsh-syntax-highlighting rails ruby bower bundler docker fasd git-flow git-extras source history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -159,3 +159,9 @@ show-swarm-token() {
     MACHINE_NAME="$2"
     echo $( cat "$SWARM_FILE_NAME"  | grep "$MACHINE_NAME" | tr ',' ' ' | awk '{print substr($1,0)}' )
 }
+eval SSH_AUTH_SOCK=/tmp/ssh-4SJK5qiGLwtn/agent.8342; export SSH_AUTH_SOCK;
+SSH_AGENT_PID=8343; export SSH_AGENT_PID;
+echo Agent pid 8343;
+eval `dircolors $HOME/.dir_colors`
+alias tmux='TERM=xterm-termite tmux'
+alias tmux-r="TERM=xterm-termite tmux attach -t $(whoami)"
