@@ -370,3 +370,8 @@ endif
 autocmd BufWritePost * :normal gg=G``zz
 set tags+=gems.tags
 set tags+=./tags
+if has("gui_running")
+    if has("gui_macvim")
+        set guifont=Sauce\ Code\ Powerline:h11
+    endif
+endif
