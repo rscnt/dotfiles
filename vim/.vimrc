@@ -360,18 +360,6 @@ let g:choosewin_overlay_enable          = 1
 let g:choosewin_overlay_clear_multibyte = 1"
 let g:ackprg = "ag --nogroup --nocolor --column"
 set nobackup 
-if has("gui_running")
-    set guioptions -=m
-    set guioptions -=T
-    set guioptions -=r
-    set guifont=Inconsolata\ for\ Powerline\ Medium\ 10 
-endif
-
 autocmd BufWritePost * :normal gg=G``zz
 set tags+=gems.tags
 set tags+=./tags
-if has("gui_running")
-    if has("gui_macvim")
-        set guifont=Sauce\ Code\ Powerline:h11
-    endif
-endif
