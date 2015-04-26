@@ -23,13 +23,13 @@ NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-git'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'flazz/vim-colorschemes'
+"NeoBundle 'kien/ctrlp.vim'
+"NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'tpope/vim-rbenv'
-NeoBundle 'tpope/vim-projectionist'
+"NeoBundle 'tpope/vim-projectionist'
 "NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
@@ -41,7 +41,6 @@ NeoBundle 'tmhedberg/matchit'
 NeoBundle 'thinca/vim-ft-markdown_fold'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-rails'
 NeoBundle 'klen/python-mode'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'sjl/gundo.vim'
@@ -54,7 +53,6 @@ NeoBundle 'lepture/vim-jinja'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'Rykka/riv.vim'
 NeoBundle 'vim-scripts/autofmt'
-NeoBundle 'bling/vim-airline'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-qfreplace'
 NeoBundle 't9md/vim-choosewin'
@@ -75,12 +73,12 @@ NeoBundle "tpope/vim-obsession"
 "Angular
 NeoBundle "pangloss/vim-javascript"
 NeoBundle "othree/javascript-libraries-syntax.vim"
-NeoBundle "matthewsimo/angular-vim-snippets"
-NeoBundle "claco/jasmine.vim"
-NeoBundle "burnettk/vim-angular"
+"NeoBundle "matthewsimo/angular-vim-snippets"
+"NeoBundle "claco/jasmine.vim"
+"NeoBundle "burnettk/vim-angular"
 NeoBundle "gregsexton/MatchTag"
 "clickeable
-NeoBundle "Rykka/clickable.vim"
+"NeoBundle "Rykka/clickable.vim"
 NeoBundle "chrisbra/csv.vim"
 
 " You can specify revision/branch/tag.
@@ -97,14 +95,15 @@ NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'eagletmt/neco-ghc'
-NeoBundle 'airblade/vim-gitgutter'
+"NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tmux-plugins/vim-tmux'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-rake'
-NeoBundle 'tpope/vim-rails'
+"NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-rbenv'
 NeoBundle 'ecomba/vim-ruby-refactoring'
+NeoBundle 'fatih/vim-go'
 
 " Required:
 call neobundle#end()
@@ -375,3 +374,7 @@ if has("gui_running")
         set guifont=Sauce\ Code\ Powerline:h11
     endif
 endif
+
+set ttyfast " u got a fast terminal
+set ttyscroll=3
+set lazyredraw " to avoid scrolling problems

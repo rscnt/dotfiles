@@ -186,3 +186,19 @@ Print
 # make sxhkd reload its configuration files:
 super + shift + Escape
 	pkill -USR1 -x sxhkd
+
+## Media keys
+XF86AudioRaiseVolume
+    pactl set-sink-volume 0 +5%
+
+XF86AudioLowerVolume
+    pactl set-sink-volume 0 -- -5%
+
+XF86AudioMute
+    amixer -q set Master toggle
+XF86AudioNext
+    playerctl next
+XF86AudioNext
+    playerctl toggle 
+XF86AudioPrev
+    playerctl prev

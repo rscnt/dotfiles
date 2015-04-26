@@ -144,8 +144,9 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 export GOPATH="$HOME/gocode"
+export GOROOT="$HOME/go/go.1.4.2/"
+export GOBIN="$GOPATH/bin"
 export PATH="$PATH:$GOPATH/bin"
-export GOROOT="$HOME/go"
 export PATH="$PATH:$GOROOT/bin"
 
 docker-machine-wrapper() {
