@@ -9,8 +9,8 @@
 ;; Internal:
 (setq font-lock-maximum-decoration t)
 
-(set-face-attribute 'default nil :font "Envy Code R 10")
-(set-frame-font "Envy Code R 10" nil t)
+(set-face-attribute 'default nil :font "Source Code Pro for Powerline 10")
+(set-frame-font "Source Code Pro for Powerline 10" nil t)
 
 (setq column-number-mode t)
 
@@ -19,7 +19,7 @@
 ;; ================
 (require 'package)
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
+	     '("melpa" . "http://melpa.org/packages/") t)
 (add-to-list 'package-archives
 	     '("org" . "http://orgmode.org/elpa/") t) ; Org-mode's repository
 (add-to-list 'package-archives
@@ -29,7 +29,7 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 ;; Keys binding
-(setq truncate-lines t) 
+(setq truncate-lines t)
 ;; Keys for windows
 (windmove-default-keybindings)
 (global-set-key (kbd "C-c b") 'windmove-left)
@@ -48,13 +48,13 @@
 (pallet-mode t)
 
 ;;; Company mode:
-(setq company-backends '(company-elisp 
-                         company-ropemacs
-                         company-gtags
-                         company-dabbrev-code
-                         company-keywords
-                         company-files 
-                         company-dabbrev))
+(setq company-backends '(company-elisp
+			  company-ropemacs
+			  company-gtags
+			  company-dabbrev-code
+			  company-keywords
+			  company-files
+			  company-dabbrev))
 
 (add-hook 'after-init-hook 'global-company-mode)
 (put 'upcase-region 'disabled nil)
@@ -64,7 +64,7 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (require 'flycheck-color-mode-line)
 (eval-after-load "flycheck"
-                 '(add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
+		 '(add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
 
 ;;=============================
 ;; Linum
@@ -116,8 +116,8 @@
 (smartparens-global-mode)
 (show-smartparens-global-mode t)
 (sp-with-modes '(rhtml-mode)
-               (sp-local-pair "<" ">")
-               (sp-local-pair "<%" "%>"))
+	       (sp-local-pair "<" ">")
+	       (sp-local-pair "<%" "%>"))
 
 ;; ruby mode
 (add-hook 'ruby-mode-hook 'robe-mode)
@@ -135,15 +135,15 @@
 (require 'cl) ; If you don't have it already
 
 (defun* get-closest-gemfile-root (&optional (file "Gemfile"))
-        "Determine the pathname of the first instance of FILE starting from the current directory towards root.
-        This may not do the correct thing in presence of links. If it does not find FILE, then it shall return the name
-        of FILE in the current directory, suitable for creation"
-        (let ((root (expand-file-name "/"))) ; the win32 builds should translate this correctly
-          (loop
-            for d = default-directory then (expand-file-name ".." d)
-            if (file-exists-p (expand-file-name file d))
-            return d
-            if (equal d root) return nil)))
+	"Determine the pathname of the first instance of FILE starting from the current directory towards root.
+	This may not do the correct thing in presence of links. If it does not find FILE, then it shall return the name
+	of FILE in the current directory, suitable for creation"
+	(let ((root (expand-file-name "/"))) ; the win32 builds should translate this correctly
+	  (loop
+	    for d = default-directory then (expand-file-name ".." d)
+	    if (file-exists-p (expand-file-name file d))
+	    return d
+	    if (equal d root) return nil)))
 
 ;; prcjectile rails
 
@@ -183,26 +183,26 @@
 			    (ruby-electric-mode t)))
 
 (eval-after-load 'ruby-mode
-  '(progn
-     ;; work around possible elpa bug
-     (ignore-errors (require 'ruby-compilation))
-     (setq ruby-use-encoding-map nil)
-     (autoload 'inf-ruby "inf-ruby")
-     (add-hook 'ruby-mode-hook 'inf-ruby-keys)
-     (autoload 'inf-ruby-switch-setup "inf-ruby")
-     (add-hook 'ruby-mode-hook 'flymake-ruby-load)
-     (require 'ruby-tools)
-     (ruby-tools-mode +1)
-     (require 'ruby-block)
-     (ruby-block-mode t)
-     (add-hook 'ruby-mode-hook 'ri-bind-key)
-     (let ((m ruby-mode-map))
-       (define-key m (kbd "RET") 'reindent-then-newline-and-indent)
-       (define-key m (kbd "C-M-h") 'backward-kill-word)
-       (define-key m (kbd "C-c l") "lambda")
-       (define-key m [S-f7] 'ruby-compilation-this-buffer)
-       (define-key m [f7] 'ruby-compilation-this-test)
-       (define-key m [f8] 'recompile))))
+		 '(progn
+		    ;; work around possible elpa bug
+		    (ignore-errors (require 'ruby-compilation))
+		    (setq ruby-use-encoding-map nil)
+		    (autoload 'inf-ruby "inf-ruby")
+		    (add-hook 'ruby-mode-hook 'inf-ruby-keys)
+		    (autoload 'inf-ruby-switch-setup "inf-ruby")
+		    (add-hook 'ruby-mode-hook 'flymake-ruby-load)
+		    (require 'ruby-tools)
+		    (ruby-tools-mode +1)
+		    (require 'ruby-block)
+		    (ruby-block-mode t)
+		    (add-hook 'ruby-mode-hook 'ri-bind-key)
+		    (let ((m ruby-mode-map))
+		      (define-key m (kbd "RET") 'reindent-then-newline-and-indent)
+		      (define-key m (kbd "C-M-h") 'backward-kill-word)
+		      (define-key m (kbd "C-c l") "lambda")
+		      (define-key m [S-f7] 'ruby-compilation-this-buffer)
+		      (define-key m [f7] 'ruby-compilation-this-test)
+		      (define-key m [f8] 'recompile))))
 
 
 
@@ -244,23 +244,23 @@
 (add-hook 'before-save-hook 'gofmt-before-save)
 ; go-import-add is bound to C-c C-a by default
 (add-hook 'go-mode-hook '(lambda ()
-  (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
-; Now we can use C-c C-r to remove all unused imports, or C-u C-c C-r to comment out unused imports. 
+			   (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
+; Now we can use C-c C-r to remove all unused imports, or C-u C-c C-r to comment out unused imports.
 (add-hook 'go-mode-hook '(lambda ()
-  (local-set-key (kbd "C-c C-g") 'go-goto-imports)))
+			   (local-set-key (kbd "C-c C-g") 'go-goto-imports)))
 ; format without save.
 (add-hook 'go-mode-hook '(lambda ()
-  (local-set-key (kbd "C-c C-f") 'gofmt)))
+			   (local-set-key (kbd "C-c C-f") 'gofmt)))
 (add-hook 'before-save-hook 'gofmt-before-save)
 ; documentation
 (add-hook 'go-mode-hook '(lambda ()
-  (local-set-key (kbd "C-c C-k") 'godoc)))
-; godef is a really nifty tool that parses go code 
+			   (local-set-key (kbd "C-c C-k") 'godoc)))
+; godef is a really nifty tool that parses go code
 ; and enables you to quickly jump the definition of any symbol or read its description
-; go-mode provides two functions for interacting 
+; go-mode provides two functions for interacting
 ; with godef: godef-describe and godef-jump.
 
-(load "$GOPATH/src/code.google.com/p/go.tools/cmd/oracle/oracle.el")
+(load "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
 (add-hook 'go-mode-hook 'go-oracle-mode)
 
 ;; C-c C-o <       go-oracle-callers
@@ -275,7 +275,7 @@
 ;; C-c C-o s       go-oracle-callstack
 ;; C-c C-o t       go-oracle-describe
 
-(add-to-list 'load-path "/home/rscnt/Development/go/src/github.com/dougm/goflymake")
+(add-to-list 'load-path "~/gocode/src/github.com/dougm/goflymake")
 (require 'go-flymake)
 
 (require 'company)                                   ; load company mode
@@ -283,8 +283,8 @@
 
 (add-hook 'go-mode-hook 'company-mode)
 (add-hook 'go-mode-hook (lambda ()
-  (set (make-local-variable 'company-backends) '(company-go))
-  (company-mode)))
+			  (set (make-local-variable 'company-backends) '(company-go))
+			  (company-mode)))
 
 ;; (require 'auto-complete-config)
 ;; (setq ac-auto-start t)
@@ -311,7 +311,7 @@
 (add-hook 'objc-mode-hook 'irony-mode)
 
 (eval-after-load 'company
-  '(add-to-list 'company-backends 'company-irony))
+		 '(add-to-list 'company-backends 'company-irony))
 
 ;; (optional) adds CC special commands to `company-begin-commands' in order to
 ;; trigger completion at interesting places, such as after scope operator
@@ -329,7 +329,7 @@
 (helm-mode 1)
 (helm-autoresize-mode 1)
 (global-set-key (kbd "M-x") 'helm-M-x)
-	
+
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
@@ -338,9 +338,11 @@
 (add-hook 'pandoc-mode-hook 'pandoc-load-default-settings)
 
 (autoload 'markdown-mode "markdown-mode"
-   "Major mode for editing Markdown files" t)
+	  "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+(setq magit-auto-revert-mode nil)
+(setq magit-last-seen-setup-instructions "1.4.0")
 ;; init.el ends here.
