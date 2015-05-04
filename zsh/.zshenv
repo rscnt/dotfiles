@@ -1,0 +1,10 @@
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH=$PATH:/home/rscnt/.cask/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/rscnt/.local/bin:/home/rscnt/bin
+export GOPATH="$HOME/gocode"
+export GOROOT="$HOME/go/go.1.4.2/"
+export GOBIN="$GOPATH/bin"
+export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$GOROOT/bin"
+eval SSH_AUTH_SOCK=/tmp/ssh-4SJK5qiGLwtn/agent.8342; export SSH_AUTH_SOCK
+SH_AGENT_PID=8343; export SSH_AGENT_PID
+export PATH="/usr/local/bin:$PATH"
