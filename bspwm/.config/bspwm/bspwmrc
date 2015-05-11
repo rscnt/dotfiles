@@ -64,4 +64,5 @@ feh --randomize --bg-scale .wallpapers/ &
 tint2 &
 setxkbmap es &
 /usr/bin/sxhkd &
+devmon-init &
     #emacs daemon
