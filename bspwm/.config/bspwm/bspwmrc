@@ -6,14 +6,14 @@ bspc config window_gap          2
 i=1
 for monitor in $(bspc query -M); do
 bspc monitor $monitor \
-        -n "$i" \
-        -d $i/{i,ii,iii,iv,v,vi,vii,viii,ix,x}
+	-n "$i" \
+	-d $i/{i,ii,iii,iv,v,vi,vii,viii,ix,x}
     let i++
 done
 NMON=$i
 unset i
 
-bspc config bottom_padding 10
+bspc config bottom_padding 30
 bspc config top_padding 10
 bspc config left_padding 10
 bspc config right_padding 10
@@ -56,11 +56,13 @@ xautolock -time 5 -locker slock &
 # xfce4-power-manager &
 # xfsettingsd &
 # thunar-volman &
-# wicd-gtk --tray &
+wicd-gtk --tray &
 #start-pulseaudio-x11 &
 # xfce4-clipman &
 compton -bc -t -8 -l -9 -r 6 -o 0.7 &
 feh --randomize --bg-scale .wallpapers/ &
+tint2 &
 setxkbmap es &
 /usr/bin/sxhkd &
+devmon-init &
     #emacs daemon
