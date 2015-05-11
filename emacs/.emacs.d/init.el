@@ -239,52 +239,52 @@
 ;;==========
 ;;Go mode:
 ;;(add-to-list 'load-path "~/.emacs.d/go")
-(add-to-list 'load-path "~/.emacs.d/go-mode.el")
-(require 'go-mode)
-(add-hook 'before-save-hook 'gofmt-before-save)
-; go-import-add is bound to C-c C-a by default
-(add-hook 'go-mode-hook '(lambda ()
-			   (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
-; Now we can use C-c C-r to remove all unused imports, or C-u C-c C-r to comment out unused imports.
-(add-hook 'go-mode-hook '(lambda ()
-			   (local-set-key (kbd "C-c C-g") 'go-goto-imports)))
-; format without save.
-(add-hook 'go-mode-hook '(lambda ()
-			   (local-set-key (kbd "C-c C-f") 'gofmt)))
-(add-hook 'before-save-hook 'gofmt-before-save)
-; documentation
-(add-hook 'go-mode-hook '(lambda ()
-			   (local-set-key (kbd "C-c C-k") 'godoc)))
-; godef is a really nifty tool that parses go code
-; and enables you to quickly jump the definition of any symbol or read its description
-; go-mode provides two functions for interacting
-; with godef: godef-describe and godef-jump.
-
-(load "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
-(add-hook 'go-mode-hook 'go-oracle-mode)
-
-;; C-c C-o <       go-oracle-callers
-;; C-c C-o >       go-oracle-callees
-;; C-c C-o c       go-oracle-peers
-;; C-c C-o d       go-oracle-definition
-;; C-c C-o f       go-oracle-freevars
-;; C-c C-o g       go-oracle-callgraph
-;; C-c C-o i       go-oracle-implements
-;; C-c C-o p       go-oracle-pointsto
-;; C-c C-o r       go-oracle-referrers
-;; C-c C-o s       go-oracle-callstack
-;; C-c C-o t       go-oracle-describe
-
-(add-to-list 'load-path "~/gocode/src/github.com/dougm/goflymake")
-(require 'go-flymake)
-
-(require 'company)                                   ; load company mode
-(require 'company-go)                                ; load company mode go backend
-
-(add-hook 'go-mode-hook 'company-mode)
-(add-hook 'go-mode-hook (lambda ()
-			  (set (make-local-variable 'company-backends) '(company-go))
-			  (company-mode)))
+; (add-to-list 'load-path "~/.emacs.d/go-mode.el")
+; (require 'go-mode)
+; (add-hook 'before-save-hook 'gofmt-before-save)
+; ; go-import-add is bound to C-c C-a by default
+; (add-hook 'go-mode-hook '(lambda ()
+; 			   (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
+; ; Now we can use C-c C-r to remove all unused imports, or C-u C-c C-r to comment out unused imports.
+; (add-hook 'go-mode-hook '(lambda ()
+; 			   (local-set-key (kbd "C-c C-g") 'go-goto-imports)))
+; ; format without save.
+; (add-hook 'go-mode-hook '(lambda ()
+; 			   (local-set-key (kbd "C-c C-f") 'gofmt)))
+; (add-hook 'before-save-hook 'gofmt-before-save)
+; ; documentation
+; (add-hook 'go-mode-hook '(lambda ()
+; 			   (local-set-key (kbd "C-c C-k") 'godoc)))
+; ; godef is a really nifty tool that parses go code
+; ; and enables you to quickly jump the definition of any symbol or read its description
+; ; go-mode provides two functions for interacting
+; ; with godef: godef-describe and godef-jump.
+;
+; (load "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
+; (add-hook 'go-mode-hook 'go-oracle-mode)
+;
+; ;; C-c C-o <       go-oracle-callers
+; ;; C-c C-o >       go-oracle-callees
+; ;; C-c C-o c       go-oracle-peers
+; ;; C-c C-o d       go-oracle-definition
+; ;; C-c C-o f       go-oracle-freevars
+; ;; C-c C-o g       go-oracle-callgraph
+; ;; C-c C-o i       go-oracle-implements
+; ;; C-c C-o p       go-oracle-pointsto
+; ;; C-c C-o r       go-oracle-referrers
+; ;; C-c C-o s       go-oracle-callstack
+; ;; C-c C-o t       go-oracle-describe
+;
+; (add-to-list 'load-path "~/gocode/src/github.com/dougm/goflymake")
+; (require 'go-flymake)
+;
+; (require 'company)                                   ; load company mode
+; (require 'company-go)                                ; load company mode go backend
+;
+; (add-hook 'go-mode-hook 'company-mode)
+; (add-hook 'go-mode-hook (lambda ()
+; 			  (set (make-local-variable 'company-backends) '(company-go))
+; 			  (company-mode)))
 
 ;; (require 'auto-complete-config)
 ;; (setq ac-auto-start t)

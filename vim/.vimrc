@@ -104,6 +104,7 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-rbenv'
 NeoBundle 'ecomba/vim-ruby-refactoring'
 NeoBundle 'fatih/vim-go'
+NeoBundle  'jeetsukumaran/vim-buffergator'
 
 " Required:
 call neobundle#end()
