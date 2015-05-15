@@ -360,7 +360,7 @@ let g:choosewin_overlay_enable          = 1
 let g:choosewin_overlay_clear_multibyte = 1"
 let g:ackprg = "ag --nogroup --nocolor --column"
 set nobackup 
-autocmd BufWritePost * :normal gg=G``zz
+"autocmd BufWritePost * :normal gg=G``zz
 set tags+=gems.tags
 set tags+=./tags
 set ttyfast " u got a fast terminal
