@@ -104,6 +104,7 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-rbenv'
 NeoBundle 'ecomba/vim-ruby-refactoring'
 NeoBundle 'fatih/vim-go'
+NeoBundle 'rust-lang/rust.vim'
 
 " Required:
 call neobundle#end()
