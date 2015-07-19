@@ -38,13 +38,13 @@ bspc config focused_frame_opacity 0.1
 # Rules
 bspc rule -a Skype pseudo_tiled=on
 bspc rule -a Spotify pseudo_tiled=on
-bspc rule -a Thunar pseudo_tiled=on
+bspc rule -a Spacefm pseudo_tiled=on
 bspc rule -a Skype pseudo_tiled=on
 bspc rule -a File-roller pseudo_tiled=on
 bspc rule -a Transmission-gtk pseudo_tiled=on
 bspc rule -a Conky sticky=on manage=off lower=on
 bspc rule -a astime sticky=on
-bspc rule -a feh floating=on manage=off
+#bspc rule -a feh floating=on manage=on
 
 
 #open Funny Java Things
@@ -64,5 +64,7 @@ feh --randomize --bg-scale .wallpapers/ &
 tint2 &
 setxkbmap es &
 /usr/bin/sxhkd &
+notify-listener &
+# /SCRIPT LOAD notify.pl
 devmon-init &
-    #emacs daemon
+emacs --daemon &
