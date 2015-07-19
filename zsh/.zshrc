@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="minimal"
+ZSH_THEME="geoffgarside"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -153,10 +153,10 @@ docker-machine-wrapper() {
     CONFIG_NAME="$1"
     shift
     docker $(docker-machine config "$CONFIG_NAME") $@
-    
+
 }
- 
-alias docker-mw="docker-machine-wrapper" 
+
+alias docker-mw="docker-machine-wrapper"
 fpath=($HOME/packages/zsh-completions/src/ $fpath)
 
 
@@ -165,9 +165,8 @@ show-swarm-token() {
     MACHINE_NAME="$2"
     echo $( cat "$SWARM_FILE_NAME"  | grep "$MACHINE_NAME" | tr ',' ' ' | awk '{print substr($1,0)}' )
 }
-eval SSH_AUTH_SOCK=/tmp/ssh-4SJK5qiGLwtn/agent.8342; export SSH_AUTH_SOCK;
-SSH_AGENT_PID=8343; export SSH_AGENT_PID;
-echo Agent pid 8343;
 eval `dircolors $HOME/.dir_colors`
 alias tmux='TERM=xterm-termite tmux'
 alias tmux-r="TERM=xterm-termite tmux attach -t $(whoami)"
+export GNUPGHOME="$HOME/.gnupg/"
+export GIT_EDITOR='emacsclient -t -a=\"\"'
