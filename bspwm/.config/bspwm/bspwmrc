@@ -59,7 +59,7 @@ xautolock -time 5 -locker slock &
 wicd-gtk --tray &
 #start-pulseaudio-x11 &
 # xfce4-clipman &
-compton -bc -t -8 -l -9 -r 6 -o 0.7 &
+compton &
 feh --randomize --bg-scale .wallpapers/ &
 tint2 &
 setxkbmap es &
