@@ -477,6 +477,58 @@
 ;(require 'pymacs)
 ;(pymacs-load "ropemacs" "rope-")
 
+(when (load "flymake" t)
+     (defun flymake-pyflakes-init ()
+       (let* ((temp-file (flymake-init-create-temp-buffer-copy
+			  'flymake-create-temp-inplace))
+      (local-file (file-relative-name
+	       temp-file
+	       (file-name-directory buffer-file-name))))
+	 (list "pyflakes" (list local-file))))
+
+     (add-to-list 'flymake-allowed-file-name-masks
+	  '("\\.py\\'" flymake-pyflakes-init)))
+
+(add-hook 'find-file-hook 'flymake-find-file-hook)
+
+(defun my-flymake-show-help ()
+  (when (get-char-property (point) 'flymake-overlay)
+   (let ((help (get-char-property (point) 'help-echo)))
+    (if help (message "%s" help)))))
+
+(add-hook 'post-command-hook 'my-flymake-show-help)
+
+(smart-mode-line-enable t)
+
+(eval-after-load 'js2-mode
+  '(progn
+     (require 'js2-imenu-extras)
+
+     ;; The code to record the class is identical to that for
+     ;; Backbone so we just make an alias
+     (defalias 'js2-imenu-record-react-class
+       'js2-imenu-record-backbone-extend)
+
+     (unless (loop for entry in js2-imenu-extension-styles
+		   thereis (eq (plist-get entry :framework) 'react))
+       (push '(:framework react
+			  :call-re "\\_<React\\.createClass\\s-*("
+			  :recorder js2-imenu-record-react-class)
+	     js2-imenu-extension-styles))
+
+     (add-to-list 'js2-imenu-available-frameworks 'react)
+     (add-to-list 'js2-imenu-enabled-frameworks 'react)))
+
+(defun modify-syntax-table-for-jsx ()
+  (modify-syntax-entry ?< "(>")
+  (modify-syntax-entry ?> ")<"))
+
+(add-hook 'js2-mode-hook 'modify-syntax-table-for-jsx)
+
+(eval-after-load 'js2-mode
+  '(sp-local-pair 'js2-mode "<" ">"))
+
+
 ;; init.el ends here.
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
