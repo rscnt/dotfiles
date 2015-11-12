@@ -159,7 +159,7 @@
 ;; Press Command-b for fuzzy switch buffer
 (global-set-key (kbd "s-b") 'projectile-switch-to-buffer)
 
-; (add-hook 'projectile-mode-hook 'projectile-rails-on)
+(add-hook 'projectile-mode-hook 'projectile-rails-on)
 ; (yas-reload-all)
 ;; webmode
 (require 'web-mode)
@@ -263,8 +263,8 @@
 ; go-mode provides two functions for interacting
 ; with godef: godef-describe and godef-jump.
 
-(load "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
-(add-hook 'go-mode-hook 'go-oracle-mode)
+;(load "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
+;(add-hook 'go-mode-hook 'go-oracle-mode)
 
 ;; C-c C-o <       go-oracle-callers
 ;; C-c C-o >       go-oracle-callees
@@ -278,8 +278,8 @@
 ;; C-c C-o s       go-oracle-callstack
 ;; C-c C-o t       go-oracle-describe
 
-(add-to-list 'load-path "~/gocode/src/github.com/dougm/goflymake")
-(require 'go-flymake)
+;(add-to-list 'load-path "~/gocode/src/github.com/dougm/goflymake")
+;(require 'go-flymake)
 
 (require 'company)                                   ; load company mode
 (require 'company-go)                                ; load company mode go backend
@@ -323,7 +323,7 @@
 
 ;; Tern:
 
-(add-to-list 'load-path "/home/rscnt/Packages/tern/emacs")
+(add-to-list 'load-path "/home/rscnt/development/tern/emacs")
 (autoload 'tern-mode "tern.el" nil t)
 (add-hook 'js-mode-hook (lambda () (tern-mode t)))
 (add-to-list 'company-backends 'company-tern)
@@ -466,15 +466,29 @@
 					; try to automagically figure out indentation
 (setq py-smart-indentation t)
 
-(autoload 'pymacs-apply "pymacs")
-(autoload 'pymacs-call "pymacs")
-(autoload 'pymacs-eval "pymacs" nil t)
-(autoload 'pymacs-exec "pymacs" nil t)
-(autoload 'pymacs-load "pymacs" nil t)
-(autoload 'pymacs-autoload "pymacs")
+;(autoload 'pymacs-apply "pymacs")
+;(autoload 'pymacs-call "pymacs")
+;(autoload 'pymacs-eval "pymacs" nil t)
+;(autoload 'pymacs-exec "pymacs" nil t)
+;(autoload 'pymacs-load "pymacs" nil t)
+;(autoload 'pymacs-autoload "pymacs")
 
 ; ropemacs
-(require 'pymacs)
-(pymacs-load "ropemacs" "rope-")
+;(require 'pymacs)
+;(pymacs-load "ropemacs" "rope-")
 
 ;; init.el ends here.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "3328e7238e0f6d0a5e1793539dfe55c2685f24b6cdff099c9a0c185b71fbfff9" "d3a86848a5e9bf123f3dd3bf82ab96995837b50f780dd7d5f65dc72c2b81a955" "75c0b1d2528f1bce72f53344939da57e290aa34bea79f3a1ee19d6808cb55149" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

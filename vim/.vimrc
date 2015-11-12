@@ -23,6 +23,7 @@ NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-git'
+NeoBundle  'tpope/vim-repeat'
 "NeoBundle 'kien/ctrlp.vim'
 "NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'sheerun/vim-polyglot'
@@ -77,6 +78,7 @@ NeoBundle "gregsexton/MatchTag"
 "clickeable
 "NeoBundle "Rykka/clickable.vim"
 NeoBundle "chrisbra/csv.vim"
+NeoBundle "svermeulen/vim-easyclip"
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimproc.vim', {
@@ -364,3 +366,5 @@ set tags+=./tags
 set ttyfast " u got a fast terminal
 set ttyscroll=3
 set lazyredraw " to avoid scrolling problems
+
+let g:syntastic_javascript_checkers = ['jsxhint', 'eslint']
