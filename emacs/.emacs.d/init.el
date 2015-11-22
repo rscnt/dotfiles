@@ -6,11 +6,12 @@
 (menu-bar-mode -1)
 (setq inhibit-splash-screen t)
 ;;=============================
+
 ;; Internal:
 (setq font-lock-maximum-decoration t)
 
-(set-face-attribute 'default nil :font "Source Code Pro for Powerline 10")
-(set-frame-font "Source Code Pro for Powerline 10" nil t)
+(set-face-attribute 'default nil :font "Source Code Pro for Powerline 8")
+(set-frame-font "Source Code Pro for Powerline 8" nil t)
 
 (setq column-number-mode t)
 
@@ -104,15 +105,7 @@
 ;;; Magit
 (require 'magit)
 (global-set-key (kbd "C-c m g") 'magit-status)
-;; Color theme
-;;(require 'sublime-themes)
-;;(load-theme 'fogus t)
-(require 'solarized-theme)
-(load-theme 'solarized-light t)
-;;(require 'color-theme)
-;;(color-theme-initialize)
-;;(add-to-list 'custom-theme-load-path "/home/hel/.emacs.d/themes/base16-emacs")
-;;(load-theme 'brin t)
+
 ;; smartparens
 (require 'smartparens-config)
 (require 'smartparens-ruby)
@@ -263,8 +256,8 @@
 ; go-mode provides two functions for interacting
 ; with godef: godef-describe and godef-jump.
 
-(load "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
-(add-hook 'go-mode-hook 'go-oracle-mode)
+;(load "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
+;(add-hook 'go-mode-hook 'go-oracle-mode)
 
 ;; C-c C-o <       go-oracle-callers
 ;; C-c C-o >       go-oracle-callees
@@ -466,16 +459,16 @@
 					; try to automagically figure out indentation
 (setq py-smart-indentation t)
 
-(autoload 'pymacs-apply "pymacs")
-(autoload 'pymacs-call "pymacs")
-(autoload 'pymacs-eval "pymacs" nil t)
-(autoload 'pymacs-exec "pymacs" nil t)
-(autoload 'pymacs-load "pymacs" nil t)
-(autoload 'pymacs-autoload "pymacs")
+; (autoload 'pymacs-apply "pymacs")
+; (autoload 'pymacs-call "pymacs")
+; (autoload 'pymacs-eval "pymacs" nil t)
+; (autoload 'pymacs-exec "pymacs" nil t)
+; (autoload 'pymacs-load "pymacs" nil t)
+; (autoload 'pymacs-autoload "pymacs")
 
 ; ropemacs
-(require 'pymacs)
-(pymacs-load "ropemacs" "rope-")
+; (require 'pymacs)
+; (pymacs-load "ropemacs" "rope-")
 
 (when (load "flymake" t)
      (defun flymake-pyflakes-init ()
@@ -498,7 +491,6 @@
 
 (add-hook 'post-command-hook 'my-flymake-show-help)
 
-(smart-mode-line-enable t)
 
 (eval-after-load 'js2-mode
   '(progn
@@ -528,5 +520,52 @@
 (eval-after-load 'js2-mode
   '(sp-local-pair 'js2-mode "<" ">"))
 
+(setq magit-last-seen-setup-instructions "1.4.0")
+
+(require 'solarized-theme)
+(load-theme 'solarized-light t)
+(require 'powerline)
+(powerline-default-theme)
+
+;; use web-mode for .jsx files
+(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+
+;; http://www.flycheck.org/manual/latest/index.html
+(require 'flycheck)
+
+;; turn on flychecking globally
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; disable jshint since we prefer eslint checking
+(setq-default flycheck-disabled-checkers
+  (append flycheck-disabled-checkers
+    '(javascript-jshint)))
+
+;; use eslint with web-mode for jsx files
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+
+;; disable json-jsonlist checking for json files
+(setq-default flycheck-disabled-checkers
+  (append flycheck-disabled-checkers
+    '(json-jsonlist)))
+
+;; https://github.com/purcell/exec-path-from-shell
+;; only need exec-path-from-shell on OSX
+;; this hopefully sets up path and other vars better
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
+;; adjust indents for web-mode to 2 spaces
+(defun my-web-mode-hook ()
+  "Hooks for Web mode. Adjust indents"
+  ;;; http://web-mode.org/
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2))
+(add-hook 'web-mode-hook  'my-web-mode-hook)
+
+(setq sml/no-confirm-load-theme t)
+(setq sml/theme 'light)
+(sml/setup)
 
 ;; init.el ends here.
