@@ -568,4 +568,6 @@
 (setq sml/theme 'light)
 (sml/setup)
 
+(setq-default indent-tabs-mode nil)
+
 ;; init.el ends here.
