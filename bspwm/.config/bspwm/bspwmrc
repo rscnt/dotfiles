@@ -44,6 +44,7 @@ bspc rule -a File-roller pseudo_tiled=on
 bspc rule -a Transmission-gtk pseudo_tiled=on
 bspc rule -a Conky sticky=on manage=off lower=on
 bspc rule -a astime sticky=on
+bspc rule -a Tint2 sticky=on manage=off lower=on
 #bspc rule -a feh floating=on manage=on
 
 
