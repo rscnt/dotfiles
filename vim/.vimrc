@@ -78,7 +78,6 @@ NeoBundle "gregsexton/MatchTag"
 "clickeable
 "NeoBundle "Rykka/clickable.vim"
 NeoBundle "chrisbra/csv.vim"
-NeoBundle "svermeulen/vim-easyclip"
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimproc.vim', {
@@ -367,4 +366,4 @@ set ttyfast " u got a fast terminal
 set ttyscroll=3
 set lazyredraw " to avoid scrolling problems
 
-let g:syntastic_javascript_checkers = ['jsxhint', 'eslint']
+let g:syntastic_javascript_checkers = ['eslint']
