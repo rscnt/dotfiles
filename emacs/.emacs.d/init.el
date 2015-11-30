@@ -6,11 +6,12 @@
 (menu-bar-mode -1)
 (setq inhibit-splash-screen t)
 ;;=============================
+
 ;; Internal:
 (setq font-lock-maximum-decoration t)
 
-(set-face-attribute 'default nil :font "Source Code Pro for Powerline 10")
-(set-frame-font "Source Code Pro for Powerline 10" nil t)
+(set-face-attribute 'default nil :font "Source Code Pro for Powerline 8")
+(set-frame-font "Source Code Pro for Powerline 8" nil t)
 
 (setq column-number-mode t)
 
@@ -104,15 +105,7 @@
 ;;; Magit
 (require 'magit)
 (global-set-key (kbd "C-c m g") 'magit-status)
-;; Color theme
-;;(require 'sublime-themes)
-;;(load-theme 'fogus t)
-(require 'solarized-theme)
-(load-theme 'solarized-light t)
-;;(require 'color-theme)
-;;(color-theme-initialize)
-;;(add-to-list 'custom-theme-load-path "/home/hel/.emacs.d/themes/base16-emacs")
-;;(load-theme 'brin t)
+
 ;; smartparens
 (require 'smartparens-config)
 (require 'smartparens-ruby)
@@ -477,6 +470,17 @@
 ;(require 'pymacs)
 ;(pymacs-load "ropemacs" "rope-")
 
+; (autoload 'pymacs-apply "pymacs")
+; (autoload 'pymacs-call "pymacs")
+; (autoload 'pymacs-eval "pymacs" nil t)
+; (autoload 'pymacs-exec "pymacs" nil t)
+; (autoload 'pymacs-load "pymacs" nil t)
+; (autoload 'pymacs-autoload "pymacs")
+
+; ropemacs
+; (require 'pymacs)
+; (pymacs-load "ropemacs" "rope-")
+
 (when (load "flymake" t)
      (defun flymake-pyflakes-init ()
        (let* ((temp-file (flymake-init-create-temp-buffer-copy
@@ -498,7 +502,6 @@
 
 (add-hook 'post-command-hook 'my-flymake-show-help)
 
-(smart-mode-line-enable t)
 
 (eval-after-load 'js2-mode
   '(progn
@@ -528,19 +531,54 @@
 (eval-after-load 'js2-mode
   '(sp-local-pair 'js2-mode "<" ">"))
 
+(setq magit-last-seen-setup-instructions "1.4.0")
+
+(require 'solarized-theme)
+(load-theme 'solarized-light t)
+(require 'powerline)
+(powerline-default-theme)
+
+;; use web-mode for .jsx files
+(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+
+;; http://www.flycheck.org/manual/latest/index.html
+(require 'flycheck)
+
+;; turn on flychecking globally
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; disable jshint since we prefer eslint checking
+(setq-default flycheck-disabled-checkers
+  (append flycheck-disabled-checkers
+    '(javascript-jshint)))
+
+;; use eslint with web-mode for jsx files
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+
+;; disable json-jsonlist checking for json files
+(setq-default flycheck-disabled-checkers
+  (append flycheck-disabled-checkers
+    '(json-jsonlist)))
+
+;; https://github.com/purcell/exec-path-from-shell
+;; only need exec-path-from-shell on OSX
+;; this hopefully sets up path and other vars better
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
+;; adjust indents for web-mode to 2 spaces
+(defun my-web-mode-hook ()
+  "Hooks for Web mode. Adjust indents"
+  ;;; http://web-mode.org/
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2))
+(add-hook 'web-mode-hook  'my-web-mode-hook)
+
+(setq sml/no-confirm-load-theme t)
+(setq sml/theme 'light)
+(sml/setup)
+
+(setq-default indent-tabs-mode nil)
 
 ;; init.el ends here.
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "3328e7238e0f6d0a5e1793539dfe55c2685f24b6cdff099c9a0c185b71fbfff9" "d3a86848a5e9bf123f3dd3bf82ab96995837b50f780dd7d5f65dc72c2b81a955" "75c0b1d2528f1bce72f53344939da57e290aa34bea79f3a1ee19d6808cb55149" default))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

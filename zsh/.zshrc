@@ -170,3 +170,11 @@ alias tmux='TERM=xterm-termite tmux'
 alias tmux-r="TERM=xterm-termite tmux attach -t $(whoami)"
 export GNUPGHOME="$HOME/.gnupg/"
 export GIT_EDITOR='emacsclient -t -a=\"\"'
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+
+export NVM_DIR="/home/r/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
