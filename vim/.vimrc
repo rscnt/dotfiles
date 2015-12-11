@@ -78,6 +78,10 @@ NeoBundle "gregsexton/MatchTag"
 "clickeable
 "NeoBundle "Rykka/clickable.vim"
 NeoBundle "chrisbra/csv.vim"
+NeoBundle "othree/yajs.vim"
+NeoBundle "othree/es.next.syntax.vim"
+
+'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimproc.vim', {
@@ -103,7 +107,9 @@ NeoBundle 'tpope/vim-rbenv'
 NeoBundle 'ecomba/vim-ruby-refactoring'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'rust-lang/rust.vim'
-NeoBundle  'jeetsukumaran/vim-buffergator'
+NeoBundle 'jeetsukumaran/vim-buffergator'
+NeoBundle 'isRuslan/vim-es6'
+
 
 " Required:
 call neobundle#end()
