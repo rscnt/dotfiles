@@ -44,6 +44,7 @@
 (depends-on "goto-chg")
 (depends-on "grizzl")
 (depends-on "haml-mode")
+(depends-on "handlebars-mode")
 (depends-on "helm")
 (depends-on "helm-ag")
 (depends-on "helm-emmet")
@@ -120,3 +121,4 @@
 (depends-on "yaml-mode")
 (depends-on "yard-mode")
 (depends-on "yasnippet")
+(depends-on "yasnippet-bundle")

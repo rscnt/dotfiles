@@ -152,7 +152,7 @@
 ;; Press Command-b for fuzzy switch buffer
 (global-set-key (kbd "s-b") 'projectile-switch-to-buffer)
 
-; (add-hook 'projectile-mode-hook 'projectile-rails-on)
+(add-hook 'projectile-mode-hook 'projectile-rails-on)
 ; (yas-reload-all)
 ;; webmode
 (require 'web-mode)
@@ -271,8 +271,8 @@
 ;; C-c C-o s       go-oracle-callstack
 ;; C-c C-o t       go-oracle-describe
 
-(add-to-list 'load-path "~/gocode/src/github.com/dougm/goflymake")
-(require 'go-flymake)
+;(add-to-list 'load-path "~/gocode/src/github.com/dougm/goflymake")
+;(require 'go-flymake)
 
 (require 'company)                                   ; load company mode
 (require 'company-go)                                ; load company mode go backend
@@ -316,7 +316,7 @@
 
 ;; Tern:
 
-(add-to-list 'load-path "/home/rscnt/Packages/tern/emacs")
+(add-to-list 'load-path "/home/rscnt/development/tern/emacs")
 (autoload 'tern-mode "tern.el" nil t)
 (add-hook 'js-mode-hook (lambda () (tern-mode t)))
 (add-to-list 'company-backends 'company-tern)
@@ -458,6 +458,17 @@
 (setq py-split-windows-on-execute-p nil)
 					; try to automagically figure out indentation
 (setq py-smart-indentation t)
+
+;(autoload 'pymacs-apply "pymacs")
+;(autoload 'pymacs-call "pymacs")
+;(autoload 'pymacs-eval "pymacs" nil t)
+;(autoload 'pymacs-exec "pymacs" nil t)
+;(autoload 'pymacs-load "pymacs" nil t)
+;(autoload 'pymacs-autoload "pymacs")
+
+; ropemacs
+;(require 'pymacs)
+;(pymacs-load "ropemacs" "rope-")
 
 ; (autoload 'pymacs-apply "pymacs")
 ; (autoload 'pymacs-call "pymacs")

@@ -44,6 +44,7 @@ bspc rule -a File-roller pseudo_tiled=on
 bspc rule -a Transmission-gtk pseudo_tiled=on
 bspc rule -a Conky sticky=on manage=off lower=on
 bspc rule -a astime sticky=on
+bspc rule -a Tint2 sticky=on manage=off lower=on
 #bspc rule -a feh floating=on manage=on
 
 
@@ -53,18 +54,18 @@ wmname LG3D &
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel" &
 xsetroot -cursor_name left_ptr &
 xautolock -time 5 -locker slock &
-# xfce4-power-manager &
-# xfsettingsd &
-# thunar-volman &
-wicd-gtk --tray &
-#start-pulseaudio-x11 &
-# xfce4-clipman &
+xfce4-power-manager &
+xfsettingsd &
+thunar-volman &
+#wicd-gtk --tray &
+start-pulseaudio-x11 &
+xfce4-clipman &
 compton &
 feh --randomize --bg-scale .wallpapers/ &
-tint2 &
-setxkbmap es &
+setxkbmap us &
 /usr/bin/sxhkd &
 notify-listener &
 # /SCRIPT LOAD notify.pl
-devmon-init &
+# devmon-init &
 emacs --daemon &
+tint2 &
