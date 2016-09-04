@@ -178,3 +178,7 @@ eval "$(pyenv virtualenv-init -)"
 
 export NVM_DIR="/home/r/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"

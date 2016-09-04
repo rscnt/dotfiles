@@ -50,6 +50,7 @@ bspc rule -a Tint2 sticky=on manage=off lower=on
 
 #open Funny Java Things
 bspc config focus_follows_pointer false &
+setxkbmap es&
 wmname LG3D &
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel" &
 xsetroot -cursor_name left_ptr &
@@ -68,4 +69,3 @@ notify-listener &
 # /SCRIPT LOAD notify.pl
 # devmon-init &
 emacs --daemon &
-tint2 &
