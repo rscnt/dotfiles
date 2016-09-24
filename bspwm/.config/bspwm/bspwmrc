@@ -13,10 +13,10 @@ done
 NMON=$i
 unset i
 
-bspc config bottom_padding 30
-bspc config top_padding 10
-bspc config left_padding 10
-bspc config right_padding 10
+bspc config bottom_padding 20
+bspc config top_padding 20
+bspc config left_padding 20
+bspc config right_padding 20
 
 # Visual options
 bspc config split_ratio         0.50
@@ -50,22 +50,21 @@ bspc rule -a Tint2 sticky=on manage=off lower=on
 
 #open Funny Java Things
 bspc config focus_follows_pointer false &
-setxkbmap es&
+setxkbmap es &
 wmname LG3D &
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel" &
 xsetroot -cursor_name left_ptr &
 xautolock -time 5 -locker slock &
 xfce4-power-manager &
-xfsettingsd &
 thunar-volman &
-#wicd-gtk --tray &
+wicd-gtk --tray &
 start-pulseaudio-x11 &
 xfce4-clipman &
 compton &
 feh --randomize --bg-scale .wallpapers/ &
-setxkbmap us &
 /usr/bin/sxhkd &
 notify-listener &
+redshift-gtk &
 # /SCRIPT LOAD notify.pl
 # devmon-init &
 emacs --daemon &

@@ -182,3 +182,4 @@ export NVM_DIR="/home/r/.nvm"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+export HOSTALIASES=~/.hosts
