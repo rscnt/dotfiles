@@ -4,3 +4,9 @@ vim/.vim
 !emacs/.emacs.d/init.el
 !emacs/.emacs.d/Cask
 flycheck_init.el
+xmonad-x86_64-linux
+xmonad.errors
+xmonad.hi
+xmonad.o
+xmonad.state
+
