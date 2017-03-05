@@ -64,7 +64,10 @@ compton &
 feh --randomize --bg-scale .wallpapers/ &
 /usr/bin/sxhkd &
 notify-listener &
-redshift-gtk &
+#redshift-gtk &
+#tint2 &
 # /SCRIPT LOAD notify.pl
 # devmon-init &
 emacs --daemon &
+$HOME/.config/lemonbuddy/launch.sh
+rescuetime &

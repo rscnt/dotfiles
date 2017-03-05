@@ -27,7 +27,7 @@ NeoBundle  'tpope/vim-repeat'
 "NeoBundle 'kien/ctrlp.vim'
 "NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'sheerun/vim-polyglot'
-NeoBundle 'altercation/vim-colors-solarized'
+"NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'tpope/vim-rbenv'
 NeoBundle 'tpope/vim-projectionist'
@@ -48,7 +48,6 @@ NeoBundle 'sjl/gundo.vim'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'bling/vim-airline'
 NeoBundle 'jmcantrell/vim-virtualenv'
 NeoBundle 'lepture/vim-jinja'
 NeoBundle 'terryma/vim-multiple-cursors'
@@ -109,6 +108,7 @@ NeoBundle 'fatih/vim-go'
 NeoBundle 'rust-lang/rust.vim'
 NeoBundle 'jeetsukumaran/vim-buffergator'
 NeoBundle 'isRuslan/vim-es6'
+NeoBundle 'chriskempson/base16-vim'
 
 
 " Required:
@@ -242,17 +242,11 @@ set wildmenu wildmode=list:longest wildignore=*.o,*.obj,*.so,*.a,*.py[co],*~
 autocmd BufEnter * silent! lcd %:p:h
 
 syntax enable
-set background=light
-colorscheme solarized
 "i ts=4 sts=4 et sw=4
 " recent file
 nnoremap <silent> <Leader>m :Unite -buffer-name=recent -winheight=10 file_mru<cr>
 
 set laststatus=2
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_powerline_fonts = 1
 
 " rtain things when we exit
 " '10  :  marks will be remembered for up to 10 previously edited files

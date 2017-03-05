@@ -1,92 +1,40 @@
-[options]
-
-resize_grip = false
-scroll_on_output = false
-scroll_on_keystroke = true
-audible_bell = false
-visible_bell = false
-mouse_autohide = true
-allow_bold = true
-dynamic_title = true
-urgent_on_bell = true
-clickable_url = true
-scrollback_lines = 1000
-search_wrap = true
-icon_name = terminal
-geometry = 640x480
-#font = Inconsolata-g 11
-#font = Envy Code R 8
-font = Source Code Pro for Powerline 10
-
-# "system", "on" or "off"
-cursor_blink = on
-
-# "block", "underline" or "ibeam"
-cursor_shape = underline 
-
-# $BROWSER is used by default
-browser = firefox
-
-# word characters used for word selection
-# (default if unset: all graphic non-punctuation/space characters)
-word_chars = -A-Za-z0-9,./?%&#:_=+@~
-
-# Solarized light color scheme
-##
 [colors]
-foreground = #657b83
-foreground_bold = #073642
-##foreground_dim = #888888
-background = #fdf6e3
-cursor = #586e75
 
-# if unset, will reverse foreground and background
-highlight = #839496
+# special
+foreground      = #586e75
+foreground_bold = #586e75
+cursor          = #586e75
+background      = #fdf6e3
 
-# colors from color0 to color254 can be set
-color0 = #073642
-color1 = #dc322f
-color2 = #859900
-color3 = #b58900
-color4 = #268bd2
-color5 = #d33682
-color6 = #2aa198
-color7 = #eee8d5
-color8 = #002b36
-color9 = #cb4b16
-color10 = #586e75
-color11 = #657b83
-color12 = #839496
+# black
+color0  = #002b36
+color8  = #657b83
+
+# red
+color1  = #dc322f
+color9  = #dc322f
+
+# green
+color2  = #859900
+color10 = #859900
+
+# yellow
+color3  = #b58900
+color11 = #b58900
+
+# blue
+color4  = #268bd2
+color12 = #268bd2
+
+# magenta
+color5  = #6c71c4
 color13 = #6c71c4
-color14 = #93a1a1
+
+# cyan
+color6  = #2aa198
+color14 = #2aa198
+
+# white
+color7  = #93a1a1
 color15 = #fdf6e3
 
-# Solarized dark color scheme
-
-#[colors]
-#foreground = #839496
-#foreground_bold = #eee8d5
-#foreground_dim = #888888
-#background = #002b36
-#cursor = #93a1a1
-
-# if unset, will reverse foreground and background
-#highlight = #839496
-
-# colors from color0 to color254 can be set
-#olor0 = #073642
-#olor1 = #dc322f
-#olor2 = #859900
-#olor3 = #b58900
-#olor4 = #268bd2
-#olor5 = #d33682
-#olor6 = #2aa198
-#olor7 = #eee8d5
-#olor8 = #002b36
-#olor9 = #cb4b16
-#olor10 = #586e75
-#olor11 = #657b83
-#olor12 = #839496
-#olor13 = #6c71c4
-#olor14 = #93a1a1
-#olor15 = #fdf6e3

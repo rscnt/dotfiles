@@ -150,9 +150,9 @@ export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$GOROOT/bin"
 
 docker-machine-wrapper() {
-    CONFIG_NAME="$1"
-    shift
-    docker $(docker-machine config "$CONFIG_NAME") $@
+CONFIG_NAME="$1"
+shift
+docker $(docker-machine config "$CONFIG_NAME") $@
 
 }
 
@@ -161,9 +161,9 @@ fpath=($HOME/packages/zsh-completions/src/ $fpath)
 
 
 show-swarm-token() {
-    SWARM_FILE_NAME="$1"
-    MACHINE_NAME="$2"
-    echo $( cat "$SWARM_FILE_NAME"  | grep "$MACHINE_NAME" | tr ',' ' ' | awk '{print substr($1,0)}' )
+SWARM_FILE_NAME="$1"
+MACHINE_NAME="$2"
+echo $( cat "$SWARM_FILE_NAME"  | grep "$MACHINE_NAME" | tr ',' ' ' | awk '{print substr($1,0)}' )
 }
 eval `dircolors $HOME/.dir_colors`
 alias tmux='TERM=xterm-termite tmux'
@@ -183,3 +183,8 @@ export NVM_DIR="/home/r/.nvm"
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 export HOSTALIASES=~/.hosts
+export EDITOR=~/.bin/editor
+
+if [ $TERMINIX_ID ] || [ $VTE_VERSION ]; then
+    source /etc/profile.d/vte.sh
+fi
